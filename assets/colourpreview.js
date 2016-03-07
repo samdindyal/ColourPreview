@@ -23,12 +23,16 @@ function colour(r, g, b) {
     this.green        = g;
     this.blue         = b;
     this.hex          = "" + r.toString(16) + g.toString(16) + b.toString(16);
-    this.accentValue  = 255 - (((r + g + b)/3) + Math.max(r, Math.max(g, b))/2);
+    this.accentValue  = parseInt(Math.abs(255 - (((r + g + b)/3) + Math.max(r, Math.max(g, b))/2)));
   }
 }
 
 function hexColour(hex) {
-  var matches = hex.match(/.{1,2}/g);
+  var matches = [];
+  if (hex.length == 6)
+    matches = hex.match(/.{1,2}/g);
+  else if (hex.length == 3)
+    matches = hex.match(/.{1}/g);
   this.red = parseInt(matches[0], 16);
   this.green = parseInt(matches[1], 16);
   this.blue = parseInt(matches[2], 16);
@@ -38,11 +42,19 @@ function hexColour(hex) {
 }
 
 function setColours() {
-  $('body').css({'background-color': 'rgb(' + currentColour.red + ','
-                                            + currentColour.green + ','
-                                            + currentColour.blue + ')'});
 
-  $('.text').css({"color": 'rgb(' + currentColour.accentValue + ','
+  var colourString = 'rgb(' + currentColour.red + ','
+                                + currentColour.green + ','
+                                + currentColour.blue + ')';
+
+  var accentColourString = 'rgb(' + currentColour.accentValue + ','
                                 + currentColour.accentValue + ','
-                                + currentColour.accentValue + ')'});
+                                + currentColour.accentValue + ')';
+
+
+  $('body').css({'background-color': colourString});
+
+  $('.text').css({"color": accentColourString});
+  $('input.text').css({"border-color": accentColourString});
+
 }
