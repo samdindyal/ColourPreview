@@ -76,7 +76,6 @@ $('input#hex').on('keyup', function() {
     this.value = '#'
   else if ((this.value.length == 4 || this.value.length == 7) && this.value.substring(1).match(/([A-Fa-f0-9])/)) {
     currentColour = new hexColour(this.value.substring(1));
-    console.log(currentColour.hex);
     setColours();
     displayColours();
   }
@@ -89,5 +88,27 @@ $('input#hex').on('focus', function() {
 
 $('input#hex').on('blur', function() {
   this.value = '#' + currentColour.hex
+  displayColours();
+});
+
+$('input#rgb').on('keyup', function() {
+  if (this.value === '')
+    this.value = 'rgb()';
+  else if (this.value.match(/rgba?\((\d{1,3}), ?(\d{1,3}), ?(\d{1,3})\)/)) {
+    var colours = this.value.substring(4, this.value.length-1).split(',');
+    currentColour = new colour(parseInt(colours[0]), parseInt(colours[1]), parseInt(colours[2]));
+    var test = [parseInt(colours[0]), parseInt(colours[1]), parseInt(colours[2])];
+    setColours();
+    displayColours();
+  }
+});
+
+$('input#rgb').on('focus', function() {
+    if (this.value === "")
+      this.value = 'rgb()';
+});
+
+$('input#rgb').on('blur', function() {
+  this.value = currentColour.rgbString;
   displayColours();
 });
