@@ -1,14 +1,19 @@
-body, .text {
-  transition: 0.25s;
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,300,600);
+
+h1.text {
+  text-align: center;
+  font-weight: normal;
+  font-size: 48pt;
 }
 
-h1 {
-  text-align: center;
+body, .text {
+  transition: 0.25s;
+  font-family: 'Open Sans', sans-serif;
 }
 
 div.container {
    position:absolute;
-   top:45%;
+   top:43%;
    left:50%;
    padding:15px;
    -ms-transform: translateX(-50%) translateY(-50%);
@@ -23,16 +28,17 @@ form {
 
 input.text {
   border: none;
-  border-bottom: 2px solid rgba(255, 255, 255, 0.25);
-
+  border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+  font-weight: lighter;
   margin-top: -15px;
   text-align: center;
-  font-size: 48pt;
+  font-size: 32pt;
   background-color: rgba(0,0,0,0);
 }
 
 label.text {
-  font-size: 36pt;
+  font-size: 34pt;
+  font-weight: normal;
 }
 
 input.text:focus {
