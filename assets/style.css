@@ -21,12 +21,21 @@ form {
 input.text {
   border: none;
   border-bottom: 2px solid rgba(255, 255, 255, 0.25);
-  padding: 5px;
+
+  margin-top: -15px;
   text-align: center;
   font-size: 48pt;
   background-color: rgba(0,0,0,0);
 }
 
+label.text {
+  font-size: 36pt;
+}
+
 input.text:focus {
   border-color: #ffffff;
+}
+
+div.inputgroup {
+  margin-bottom: 50px;
 }
