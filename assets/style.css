@@ -1,3 +1,7 @@
+body, .text {
+  transition: 0.25s;
+}
+
 h1 {
   text-align: center;
 }
