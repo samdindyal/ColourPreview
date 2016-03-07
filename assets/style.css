@@ -4,22 +4,19 @@ h1.text {
   text-align: center;
   font-weight: normal;
   font-size: 48pt;
+  width: auto;
+  margin: auto 0;
+  padding: 50px;
 }
 
 body, .text {
   transition: 0.25s;
   font-family: 'Open Sans', sans-serif;
+  border: none;
 }
 
 div.container {
-   position:absolute;
-   top:43%;
-   left:50%;
-   padding:15px;
-   -ms-transform: translateX(-50%) translateY(-50%);
-   -webkit-transform: translate(-50%,-50%);
-   transform: translate(-50%,-50%);
-   text-align: center;
+  border: none;
 }
 
 form {
@@ -30,7 +27,6 @@ input.text {
   border: none;
   border-bottom: 1px solid rgba(255, 255, 255, 0.25);
   font-weight: lighter;
-  margin-top: -15px;
   text-align: center;
   font-size: 32pt;
   background-color: rgba(0,0,0,0);
@@ -39,6 +35,7 @@ input.text {
 label.text {
   font-size: 34pt;
   font-weight: normal;
+  display: inline-block;
 }
 
 input.text:focus {
@@ -47,4 +44,33 @@ input.text:focus {
 
 div.inputgroup {
   margin-bottom: 50px;
+  max-width:4vw;
+  text-align: center;
+}
+
+@media screen and (max-device-width:768px) {
+  div.container {
+    position: relative;
+    display: inline block;
+    top: inherit;
+    border: none;
+}
+
+@media screen and (min-device-width:768px) {
+  div.container {
+    display: none;
+    position:absolute;
+    top:43%;
+    left:50%;
+    padding:15px;
+    -ms-transform: translateX(-50%) translateY(-50%);
+    -webkit-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);
+    text-align: center;
+  }
+
+  input.text {
+    margin-top: -15px;
+    text-align: center;
+  }
 }
