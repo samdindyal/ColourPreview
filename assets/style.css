@@ -1,0 +1,32 @@
+header {
+  text-align: center;
+}
+
+div.container {
+   position:absolute;
+   color:#fff;
+   top:45%;
+   left:50%;
+   padding:15px;
+   -ms-transform: translateX(-50%) translateY(-50%);
+   -webkit-transform: translate(-50%,-50%);
+   transform: translate(-50%,-50%);
+   text-align: center;
+}
+
+form {
+  display: inline-block;
+}
+
+input.text {
+  border: none;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.25);
+  padding: 5px;
+  text-align: center;
+  font-size: 48pt;
+  background-color: rgba(0,0,0,0);
+}
+
+input.text:focus {
+  border-color: #ffffff;
+}
