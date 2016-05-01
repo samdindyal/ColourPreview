@@ -37,7 +37,11 @@ function hexColour(hex) {
   if (hex.length == 6)
     matches = hex.match(/[a-fA-F0-9]{1,2}/g);
   else if (hex.length == 3)
+  {
     matches = hex.match(/[a-fA-F0-9]{1}/g);
+    for (var i = 0; i < matches.length; i++)
+      matches[i] += matches[i];
+  }
   else return;
   this.red = parseInt(matches[0], 16);
   this.green = parseInt(matches[1], 16);
@@ -87,7 +91,7 @@ $('input#hex').on('focus', function() {
 });
 
 $('input#hex').on('blur', function() {
-  this.value = '#' + currentColour.hex
+  this.value = '#' + currentColour.hex;
   displayColours();
 });
 
